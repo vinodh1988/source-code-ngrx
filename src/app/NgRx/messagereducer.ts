@@ -11,13 +11,13 @@ export const initialState: MessageState = {
 
 const _messageReducer = createReducer(
   initialState,
-  on(MessageActions.showMessage, (state, { message }) => {
+  on(MessageActions.showMessage, (state, { message }) => 
     
-    return ({
+     ({
     ...state,
     message
   })
- })
+ )
 )
 
 

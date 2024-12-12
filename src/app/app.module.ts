@@ -9,22 +9,29 @@ import { CounterDisplayyComponent } from './counter-displayy/counter-displayy.co
 import { counterReducer } from './NgRx/reducer';
 import { MessageComponent } from './message/message.component';
 import { messageReducer } from './NgRx/messagereducer';
+import { quoteReducer } from './NgRx/quotereducer';
+import { QuoteComponent } from './quote/quote.component';
+import { QuoteEffects } from './NgRx/quoteeffects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterDisplayyComponent,
-    MessageComponent
+    MessageComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    EffectsModule.forRoot([QuoteEffects]),
     StoreModule.forRoot({
       count: counterReducer,
-      messageData: messageReducer//{message:string}
+      messageData: messageReducer,//{message:string}
+      quote: quoteReducer
     })
-  ,
-    EffectsModule.forRoot([])
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
